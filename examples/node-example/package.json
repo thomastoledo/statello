@@ -4,7 +4,7 @@
   "description": "Example for using this lib in a Node.js application",
   "private": true,
   "dependencies": {
-    "mylib": "file:../../dist/cjs"
+    "tinystate": "file:../../dist/cjs"
   },
   "devDependencies": {
     "tsimp": "^2.0.12",

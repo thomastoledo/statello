@@ -1,5 +1,5 @@
 {
-  "name": "mylib",
+  "name": "tinystate",
   "version": "0.0.1",
   "keywords": [
     "js",
@@ -7,7 +7,7 @@
     "utility",
     "typescript"
   ],
-  "description": "mylib description",
+  "description": "tinsystate is a lightweight, framework-agnostic state management library in TypeScript.",
   "devDependencies": {
     "@types/jest": "^29.5.14",
     "@types/node": "^22.10.2",
@@ -42,12 +42,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/thomastoledo/Mylib.git"
+    "url": "git+https://github.com/thomastoledo/tinystate.git"
   },
   "author": "Thomas TOLEDO",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/thomastoledo/Mylib/issues"
+    "url": "https://github.com/thomastoledo/tinystate/issues"
   },
-  "homepage": "https://github.com/thomastoledo/Mylib#readme"
+  "homepage": "https://github.com/thomastoledo/tinystate#readme"
 }

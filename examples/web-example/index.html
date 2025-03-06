@@ -1,11 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>CheeseNaN Web Example</title>
-</head>
-<body>
-  <script type="module" src="./index.ts"></script>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>tinyState Web Examples</title>
+    <script src="./index.ts" type="module"></script>
+    <style>
+      body.dark {
+        background-color: #333;
+        color: white;
+      }
+      body.light {
+        background-color: white;
+        color: black;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>tinyState Web Examples</h1>
+
+    <h2>Counter Example</h2>
+    <p id="count-display">Count: 0</p>
+    <button id="increment-button">Increment</button>
+
+    <h2>Theme Switcher</h2>
+    <button id="theme-button">Toggle Theme</button>
+
+    <h2>Live Text Input</h2>
+    <input id="input-field" type="text" placeholder="Type something..." />
+    <p>Live Output: <span id="output-display"></span></p>
+  </body>
 </html>
