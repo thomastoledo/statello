@@ -1,4 +1,4 @@
-# tinyState
+# statello
 
 A lightweight, framework-agnostic state management library for TypeScript and JavaScript.
 
@@ -12,13 +12,13 @@ A lightweight, framework-agnostic state management library for TypeScript and Ja
 ## 📦 Installation
 
 ```sh
-npm install petitflux
+npm install statello
 ```
 
 or
 
 ```sh
-yarn add petitflux
+yarn add statello
 ```
 
 ## 🔥 Usage
@@ -26,7 +26,7 @@ yarn add petitflux
 ### Basic Example
 
 ```typescript
-import { useState } from "petitflux";
+import { useState } from "statello";
 
 // Create a state variable
 const [count, setCount, subscribe] = useState(0);
@@ -45,9 +45,9 @@ setCount(5); // Console: "New value: 5"
 unsubscribe();
 ```
 
-### Using tinyState in a UI Framework
+### Using statello in a UI Framework
 
-You can integrate `tinyState` easily into any framework like Vue, Angular, Svelte, or even plain HTML.
+You can integrate `statello` easily into any framework like Vue, Angular, Svelte, or even plain HTML.
 
 #### Example with Vanilla JavaScript:
 
@@ -56,7 +56,7 @@ You can integrate `tinyState` easily into any framework like Vue, Angular, Svelt
 <p id="count"></p>
 
 <script type="module">
-  import { useState } from "petitflux";
+  import { useState } from "statello";
 
   const [count, setCount, subscribe] = useState(0);
   const countDisplay = document.getElementById("count");
@@ -98,5 +98,5 @@ MIT License © 2025 [Thomas TOLEDO](https://github.com/thomastoledo)
 
 We welcome contributions! Feel free to open issues or submit PRs.
 
-- [GitHub Repository](https://github.com/yourgithub/tinyState)
-- [NPM Package](https://www.npmjs.com/package/petitflux)
+- [GitHub Repository](https://github.com/yourgithub/statello)
+- [NPM Package](https://www.npmjs.com/package/statello)

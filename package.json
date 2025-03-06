@@ -1,5 +1,5 @@
 {
-  "name": "petitflux",
+  "name": "statello",
   "version": "0.0.1",
   "keywords": [
     "js",
@@ -7,7 +7,7 @@
     "utility",
     "typescript"
   ],
-  "description": "tinsystate is a lightweight, framework-agnostic state management library in TypeScript.",
+  "description": "statello is a lightweight, framework-agnostic state management library in TypeScript.",
   "devDependencies": {
     "@types/jest": "^29.5.14",
     "@types/node": "^22.10.2",
@@ -42,12 +42,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/thomastoledo/petitflux.git"
+    "url": "git+https://github.com/thomastoledo/statello.git"
   },
   "author": "Thomas TOLEDO",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/thomastoledo/petitflux/issues"
+    "url": "https://github.com/thomastoledo/statello/issues"
   },
-  "homepage": "https://github.com/thomastoledo/petitflux#readme"
+  "homepage": "https://github.com/thomastoledo/statello#readme"
 }

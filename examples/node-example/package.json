@@ -4,7 +4,7 @@
   "description": "Example for using this lib in a Node.js application",
   "private": true,
   "dependencies": {
-    "petitflux": "file:../../dist/cjs"
+    "statello": "file:../../dist/cjs"
   },
   "devDependencies": {
     "tsimp": "^2.0.12",

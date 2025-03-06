@@ -12,6 +12,6 @@
   },
   "dependencies": {
     "pelouse": "^0.0.2",
-    "petitflux": "file:../../dist/esm"
+    "statello": "file:../../dist/esm"
   }
 }

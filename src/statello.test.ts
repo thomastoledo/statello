@@ -1,6 +1,6 @@
-import { useState } from "../src/petitflux";
+import { useState } from "./statello";
 
-describe("tinyState", () => {
+describe("statello", () => {
   test("should initialize state with the given initial value", () => {
     const [count] = useState(10);
     expect(count()).toBe(10);
