@@ -1,4 +1,4 @@
-import { useState } from "tinystate";
+import { useState } from "petitflux";
 import { maybe } from "pelouse";
 // Example 1: Simple Counter
 const [count, setCount, subscribeCount] = useState(0);

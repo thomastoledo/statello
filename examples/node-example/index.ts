@@ -1,6 +1,6 @@
 // Node.js Examples for tinyState
 
-import { useState } from "tinystate";
+import { useState } from "petitflux";
 
 console.log("--- Example 1: Basic Counter ---");
 const [count, setCount, subscribe] = useState(0);

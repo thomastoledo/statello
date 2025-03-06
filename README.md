@@ -12,13 +12,13 @@ A lightweight, framework-agnostic state management library for TypeScript and Ja
 ## 📦 Installation
 
 ```sh
-npm install tinystate
+npm install petitflux
 ```
 
 or
 
 ```sh
-yarn add tinystate
+yarn add petitflux
 ```
 
 ## 🔥 Usage
@@ -26,7 +26,7 @@ yarn add tinystate
 ### Basic Example
 
 ```typescript
-import { useState } from "tinystate";
+import { useState } from "petitflux";
 
 // Create a state variable
 const [count, setCount, subscribe] = useState(0);
@@ -56,7 +56,7 @@ You can integrate `tinyState` easily into any framework like Vue, Angular, Svelt
 <p id="count"></p>
 
 <script type="module">
-  import { useState } from "tinystate";
+  import { useState } from "petitflux";
 
   const [count, setCount, subscribe] = useState(0);
   const countDisplay = document.getElementById("count");
@@ -99,4 +99,4 @@ MIT License © 2025 [Thomas TOLEDO](https://github.com/thomastoledo)
 We welcome contributions! Feel free to open issues or submit PRs.
 
 - [GitHub Repository](https://github.com/yourgithub/tinyState)
-- [NPM Package](https://www.npmjs.com/package/tinystate)
+- [NPM Package](https://www.npmjs.com/package/petitflux)

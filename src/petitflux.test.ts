@@ -1,4 +1,4 @@
-import { useState } from "../src/tinystate";
+import { useState } from "../src/petitflux";
 
 describe("tinyState", () => {
   test("should initialize state with the given initial value", () => {

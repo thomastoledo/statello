@@ -1,5 +1,5 @@
 {
-  "name": "tinystate",
+  "name": "petitflux",
   "version": "0.0.1",
   "keywords": [
     "js",
@@ -42,12 +42,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/thomastoledo/tinystate.git"
+    "url": "git+https://github.com/thomastoledo/petitflux.git"
   },
   "author": "Thomas TOLEDO",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/thomastoledo/tinystate/issues"
+    "url": "https://github.com/thomastoledo/petitflux/issues"
   },
-  "homepage": "https://github.com/thomastoledo/tinystate#readme"
+  "homepage": "https://github.com/thomastoledo/petitflux#readme"
 }

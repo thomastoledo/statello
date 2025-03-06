@@ -4,7 +4,7 @@ import path from "path";
 export default defineConfig({
   resolve: {
     alias: {
-      tinystate: path.resolve(__dirname, "../../dist/esm"),
+      petitflux: path.resolve(__dirname, "../../dist/esm"),
     },
   },
 });
