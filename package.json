@@ -1,6 +1,6 @@
 {
   "name": "statello",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "keywords": [
     "js",
     "javascript",
@@ -20,6 +20,7 @@
   "main": "./dist/cjs/index.js",
   "module": "./dist/esm/index.js",
   "types": "./dist/esm/index.d.ts",
+  "browser": "./dist/umd/index.js",
   "exports": {
     ".": {
       "import": "./dist/esm/index.js",
@@ -32,9 +33,10 @@
     "LICENSE"
   ],
   "scripts": {
-    "build": "npm run test && npm run build:cjs && npm run build:esm",
+    "build": "npm run test && npm run build:cjs && npm run build:esm && npm run build:umd",
     "build:cjs": "tsc --project tsconfig.cjs.json",
     "build:esm": "tsc --project tsconfig.esm.json",
+    "build:umd": "tsc --project tsconfig.umd.json",
     "build:examples": "npm run build && cd examples/node-example && npm install && cd ../web-example && npm install",
     "test": "jest",
     "prepare": "npm run build",
