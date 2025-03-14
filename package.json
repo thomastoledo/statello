@@ -1,6 +1,6 @@
 {
   "name": "statello",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "keywords": [
     "js",
     "javascript",
@@ -17,7 +17,7 @@
     "ts-jest": "^29.2.5",
     "ts-node": "^10.9.2",
     "typescript": "^5.7.2"
-  },
+  },  
   "main": "./dist/cjs/index.js",
   "module": "./dist/esm/index.js",
   "types": "./dist/esm/index.d.ts",
@@ -34,9 +34,10 @@
     "LICENSE"
   ],
   "scripts": {
-    "build": "npm run test && npm run build:cjs && npm run build:esm && npm run bundle-esm",
+    "build": "npm run test && npm run build:cjs && npm run build:esm && npm run bundle-esm && npm run bundle-esm-min",
     "build:cjs": "tsc --project tsconfig.cjs.json",
     "build:esm": "tsc --project tsconfig.esm.json",
+    "bundle-esm-min": "esbuild ./dist/esm/index.js --bundle --format=esm --global-name=Statello --outfile=dist/statello.min.js --minify",
     "bundle-esm": "esbuild ./dist/esm/index.js --bundle --format=esm --global-name=Statello --outfile=dist/statello.js",
     "build:examples": "npm run build && cd examples/node-example && npm install && cd ../web-example && npm install",
     "test": "jest",
