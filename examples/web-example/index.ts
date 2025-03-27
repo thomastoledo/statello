@@ -1,7 +1,7 @@
 import { useState } from "statello";
 import { maybe } from "pelouse";
 // Example 1: Simple Counter
-const [count, setCount, subscribeCount] = useState(0);
+const [, setCount, subscribeCount] = useState(0);
 const countDisplay = document.getElementById("count-display");
 const countButton = document.getElementById("increment-button");
 
@@ -11,7 +11,7 @@ subscribeCount((newValue) => {
 
 maybe(countButton).forEach((element) =>
   element.addEventListener("click", () => {
-    setCount(count() + 1);
+    setCount((count) => count + 1);
   })
 );
 
@@ -31,7 +31,7 @@ maybe(themeButton).forEach((element) => {
 });
 
 // Example 3: Live Text Input Sync
-const [_, setText, subscribeText] = useState("");
+const [, setText, subscribeText] = useState("");
 const inputField = document.getElementById("input-field");
 const outputDisplay = document.getElementById("output-display");
 

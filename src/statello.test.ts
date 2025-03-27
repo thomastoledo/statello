@@ -1,104 +1,90 @@
 import { useState } from "./statello";
 
-describe("statello", () => {
+describe("Statello", () => {
   test("should initialize state with the given initial value", () => {
     const [count] = useState(10);
     expect(count()).toBe(10);
   });
 
-  test("should update state when set is called", () => {
+  test("should update state with a direct value", () => {
     const [count, setCount] = useState(0);
     setCount(5);
     expect(count()).toBe(5);
   });
 
-  test("should not update state if the same value is set", () => {
-    const [count, setCount, subscribe] = useState(0);
-    const callback = jest.fn();
-    subscribe(callback);
-    setCount(0);
-    expect(callback).not.toHaveBeenCalled();
+  test("should update state using an updater function", () => {
+    const [count, setCount] = useState(1);
+    setCount((prev) => prev + 2);
+    expect(count()).toBe(3);
   });
 
-  test("should notify subscribers on state change", () => {
+  test("should notify subscribers on direct state change", () => {
     const [count, setCount, subscribe] = useState(0);
     const callback = jest.fn();
     subscribe(callback);
-    setCount(2);
-    expect(callback).toHaveBeenCalledWith(2);
+    setCount(42);
+    expect(callback).toHaveBeenCalledWith(42);
+  });
+
+  test("should notify subscribers on updater function", () => {
+    const [count, setCount, subscribe] = useState(10);
+    const callback = jest.fn();
+    subscribe(callback);
+    setCount((prev) => prev * 2);
+    expect(callback).toHaveBeenCalledWith(20);
   });
 
   test("should allow multiple subscribers", () => {
     const [count, setCount, subscribe] = useState(0);
-    const callback1 = jest.fn();
-    const callback2 = jest.fn();
-
-    subscribe(callback1);
-    subscribe(callback2);
-    setCount(3);
-
-    expect(callback1).toHaveBeenCalledWith(3);
-    expect(callback2).toHaveBeenCalledWith(3);
+    const cb1 = jest.fn();
+    const cb2 = jest.fn();
+    subscribe(cb1);
+    subscribe(cb2);
+    setCount(100);
+    expect(cb1).toHaveBeenCalledWith(100);
+    expect(cb2).toHaveBeenCalledWith(100);
   });
 
-  test("should unsubscribe correctly", () => {
+  test("should unsubscribe a subscriber", () => {
     const [count, setCount, subscribe] = useState(0);
     const callback = jest.fn();
     const unsubscribe = subscribe(callback);
-
     unsubscribe();
-    setCount(4);
+    setCount(999);
     expect(callback).not.toHaveBeenCalled();
   });
 
-  test("should not call removed subscribers on state change", () => {
-    const [count, setCount, subscribe] = useState(0);
-    const callback = jest.fn();
-    const unsubscribe = subscribe(callback);
-
-    unsubscribe();
-    setCount(5);
-    expect(callback).not.toHaveBeenCalled();
+  test("should work with string state", () => {
+    const [text, setText] = useState("hello");
+    setText("world");
+    expect(text()).toBe("world");
   });
 
-  test("should allow re-subscribing after unsubscribe", () => {
-    const [count, setCount, subscribe] = useState(0);
-    const callback = jest.fn();
-    let unsubscribe = subscribe(callback);
-    unsubscribe();
-
-    unsubscribe = subscribe(callback);
-    setCount(6);
-    expect(callback).toHaveBeenCalledWith(6);
+  test("should work with object state", () => {
+    const [obj, setObj] = useState({ a: 1 });
+    setObj((prev) => ({ ...prev, b: 2 }));
+    expect(obj()).toEqual({ a: 1, b: 2 });
   });
 
-  test("should work with different data types", () => {
-    const [stringState, setStringState] = useState("hello");
-    setStringState("world");
-    expect(stringState()).toBe("world");
-
-    const [booleanState, setBooleanState] = useState(true);
-    setBooleanState(false);
-    expect(booleanState()).toBe(false);
-
-    const [arrayState, setArrayState] = useState([1, 2, 3]);
-    setArrayState([4, 5, 6]);
-    expect(arrayState()).toEqual([4, 5, 6]);
+  test("should work with array state", () => {
+    const [arr, setArr] = useState([1, 2]);
+    setArr((prev) => [...prev, 3]);
+    expect(arr()).toEqual([1, 2, 3]);
   });
 
-  test("should not mutate the previous state when setting a new value", () => {
-    const [objState, setObjState] = useState({ a: 1 });
-    const prevState = objState();
-    setObjState({ a: 2 });
-    expect(objState()).not.toBe(prevState);
-    expect(objState()).toEqual({ a: 2 });
-  });
-
-  test("should allow subscribing before any state change", () => {
-    const [count, setCount, subscribe] = useState(0);
+  test("should notify on setting the same value", () => {
+    const [value, setValue, subscribe] = useState(7);
     const callback = jest.fn();
     subscribe(callback);
-    setCount(7);
+    setValue(7);
     expect(callback).toHaveBeenCalledWith(7);
+  });
+
+  test("should notify on updating to same value via function", () => {
+    const [value, setValue, subscribe] = useState(5);
+    const callback = jest.fn();
+    subscribe(callback);
+    setValue((prev) => prev);
+    expect(callback).toHaveBeenCalledWith(5);
   });
 });

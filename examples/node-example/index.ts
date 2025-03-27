@@ -25,7 +25,7 @@ setConfig({ ...config(), theme: "dark" }); // Console: Config updated: { theme: 
 setConfig({ ...config(), debug: true }); // Console: Config updated: { theme: 'dark', debug: true }
 
 console.log("\n--- Example 3: Simulating Asynchronous Updates ---");
-const [status, setStatus, subscribeStatus] = useState("idle");
+const [, setStatus, subscribeStatus] = useState("idle");
 
 subscribeStatus((newStatus) => {
   console.log("Status changed to:", newStatus);
@@ -42,11 +42,11 @@ subscribeItems((newItems) => {
 });
 
 setItems(["Item 1"]);
-setItems([...items(), "Item 2"]);
+setItems((items) => [...items, "Item 2"]);
 setItems([...items(), "Item 3"]);
 
 console.log("\n--- Example 5: Unsubscribing from Changes ---");
-const [name, setName, subscribeName] = useState("Alice");
+const [, setName, subscribeName] = useState("Alice");
 const unsubscribe = subscribeName((newName) => {
   console.log("Name updated to:", newName);
 });

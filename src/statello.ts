@@ -1,6 +1,7 @@
 type Subscriber<T> = (value: T) => void;
+type UpdaterCallback<T> = (value: T) => T;
 
-export function useState<T>(initialValue: T): [() => T, (newValue: T) => void, (callback: Subscriber<T>) => () => void] {
+export function useState<T>(initialValue: T): [() => T, (valueOrFn: T | UpdaterCallback<T>, opt?: {equalityCheck: boolean}) => void, (callback: Subscriber<T>) => () => void] {
   let state = initialValue;
   const subscribers: Subscriber<T>[] = [];
 
@@ -8,11 +9,16 @@ export function useState<T>(initialValue: T): [() => T, (newValue: T) => void, (
     return state;
   }
 
-  function set(newValue: T): void {
-    if (newValue !== state) {
-      state = newValue;
-      subscribers.forEach((callback) => callback(state));
-    }
+  function set(valueOrFn: T | UpdaterCallback<T>, opt?: {equalityCheck: boolean}): void {
+    const newValue = typeof valueOrFn === 'function'
+      ? (valueOrFn as UpdaterCallback<T>)(state)
+      : valueOrFn;
+
+      if (!opt?.equalityCheck || state !== newValue) {
+        state = newValue
+        subscribers.forEach((callback) => callback(state));
+      }
+
   }
 
   function subscribe(callback: Subscriber<T>): () => void {
