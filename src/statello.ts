@@ -1,5 +1,5 @@
-type Subscriber<T> = (value: T) => void;
-type UpdaterCallback<T> = (value: T) => T;
+export type Subscriber<T> = (value: T) => void;
+export type UpdaterCallback<T> = (value: T) => T;
 
 export function useState<T>(initialValue: T): [() => T, (valueOrFn: T | UpdaterCallback<T>, opt?: {equalityCheck: boolean}) => void, (callback: Subscriber<T>) => () => void] {
   let state = initialValue;
